@@ -28,7 +28,9 @@
       >
     </footer>
     <script>
-      document.querySelector("iframe").focus();
+      document.querySelector("iframe").addEventListener("load", () => {
+        document.querySelector("iframe").focus();
+      });
     </script>
   </body>
 </html>
