@@ -381,7 +381,7 @@ function startGame() {
 
         game.start();
 
-        gtag("send", "restart", { event_category: "Game" });
+        gtag("event", "restart", { event_category: "Game" });
     }
 
     function gameOver() {
@@ -393,8 +393,8 @@ function startGame() {
 
         game.stop();
 
-        gtag("send", "game_over", { event_category: "Game", value: score });
+        gtag("event", "game_over", { event_category: "Game", value: score });
     }
 
-    gtag("send", "start", { event_category: "Game" });
+    gtag("event", "start", { event_category: "Game" });
 }
