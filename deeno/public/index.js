@@ -1,4 +1,4 @@
-/* global PIXI, ga */
+/* global PIXI, gtag */
 /// <reference types="pixi.js" />
 
 const { Application, Texture, Sprite, TilingSprite, Text, TextStyle } = PIXI;
@@ -381,11 +381,7 @@ function startGame() {
 
         game.start();
 
-        ga("send", {
-            hitType: "event",
-            eventCategory: "Game",
-            eventAction: "restart"
-        });
+        gtag("send", "restart", { event_category: "Game" });
     }
 
     function gameOver() {
@@ -397,17 +393,8 @@ function startGame() {
 
         game.stop();
 
-        ga("send", {
-            hitType: "event",
-            eventCategory: "Game",
-            eventAction: "game_over",
-            eventValue: score
-        });
+        gtag("send", "game_over", { event_category: "Game", value: score });
     }
 
-    ga("send", {
-        hitType: "event",
-        eventCategory: "Game",
-        eventAction: "start"
-    });
+    gtag("send", "start", { event_category: "Game" });
 }
